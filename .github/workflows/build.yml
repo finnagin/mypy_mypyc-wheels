@@ -61,8 +61,9 @@ jobs:
         # use a commit hash checked into a file to get the mypy revision to build.
         # submodules prove problematic since .git is outside cibuildwheel's manylinux container
         run: |
-          git clone https://github.com/python/mypy.git --recurse-submodules
-          git -C mypy checkout $(cat mypy_commit)
+          git clone https://github.com/finnagin/mypy.git --recurse-submodules
+          # git -C mypy checkout $(cat mypy_commit)
+          git -C mypy checkout arm64-runner
 
       - uses: pypa/cibuildwheel@v3.1.1
         with:
